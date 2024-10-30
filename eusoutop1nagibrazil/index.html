@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciais de Kanto</title>
+    <style>
+        /* Estilo geral do body */
+        body {
+            background-color: black; /* Fundo preto */
+            color: white; /* Fonte branca */
+            font-family: Arial, sans-serif; /* Fonte padrão */
+        }
+
+        /* Estilo geral das guias */
+        .tabs {
+            display: flex;
+            cursor: pointer;
+        }
+        .tab {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+            background-color: #444; /* Fundo escuro para as guias */
+            color: white; /* Fonte branca nas guias */
+        }
+        .tab.active {
+            background-color: #fff; /* Fundo branco quando ativo */
+            color: black; /* Fonte preta quando ativo */
+            border-bottom: none;
+            font-weight: bold;
+        }
+        .content {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: -1px;
+        }
+        .content.active {
+            display: block;
+        }
+
+        /* Estilos específicos para cada guia */
+        #charmanderContent {
+            background: linear-gradient(to bottom, #FF4500, #FF6347, #FFD700); /* Vermelho, laranja, amarelo */
+        }
+        #squirtleContent {
+            background: linear-gradient(to bottom, #BDA76D, #8B4513, #4682B4); /* Bege, marrom, azul */
+        }
+        #bulbasaurContent {
+            background: linear-gradient(to bottom, #A8D5BA, #6B9A6B, #3B8A3B); /* Três tons de verde */
+        }
+
+        /* Estilo das imagens */
+        .evolution-image, .mega-image {
+            max-width: 100%; /* Para que a imagem não ultrapasse o tamanho do container */
+            height: auto; /* Mantém a proporção da imagem */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('charmander')">Charmander</div>
+        <div class="tab" onclick="showTab('squirtle')">Squirtle</div>
+        <div class="tab" onclick="showTab('bulbasaur')">Bulbasaur</div>
+    </div>
+
+    <div id="charmanderContent" class="content active">
+        <h2>Charmander</h2>
+        <p>Charmander é um Pokémon do tipo Fogo. Ele evolui para Charmeleon e, em seguida, para Charizard.</p>
+        <img class="evolution-image" src="adadw.png" alt="Evolução de Charmander" />
+        
+        <h3>Mega-Evolução</h3>
+        <p>Charmander pode mega-evoluir para Mega Charizard X ou Mega Charizard Y. 
+        Mega Charizard X é do tipo Fogo/Dragão e apresenta uma coloração diferente, com predominância de azul e preto.
+        Mega Charizard Y mantém o tipo Fogo e tem um design mais aerodinâmico.</p>
+        <p>As mega-evoluções de Charizard foram apresentadas pela primeira vez no anime durante a série "Pokémon XY", nos episódios onde Ash enfrenta o torneio da Mega Evolução.</p>
+        <img class="mega-image" src="adadwX.png" alt="Mega Charizard" />
+        <img class="mega-image" src="adadwY.png" alt="Mega Charizard" />
+    </div>
+    
+    <div id="squirtleContent" class="content">
+        <h2>Squirtle</h2>
+        <p>Squirtle é um Pokémon do tipo Água. Ele evolui para Wartortle e, em seguida, para Blastoise.</p>
+        <img class="evolution-image" src="lagartixaagua.png" alt="Evolução de Squirtle" />
+        
+        <h3>Mega-Evolução</h3>
+        <p>Squirtle pode mega-evoluir para Mega Blastoise, que se torna um Pokémon ainda mais poderoso, com canhões de água em seus ombros. 
+        A mega-evolução de Blastoise também foi introduzida na série "Pokémon XY".</p>
+        <img class="mega-image" src="megalagartixaagua.png" alt="Mega Blastoise" />
+    </div>
+    
+    <div id="bulbasaurContent" class="content">
+        <h2>Bulbasaur</h2>
+        <p>Bulbasaur é um Pokémon do tipo Planta/Venenoso. Ele evolui para Ivysaur e, em seguida, para Venusaur.</p>
+        <img class="evolution-image" src="buseta.png" alt="Evolução de Bulbasaur" />
+        
+        <h3>Mega-Evolução</h3>
+        <p>Bulbasaur pode mega-evoluir para Mega Venusaur, que tem uma flor ainda mais impressionante e maior em suas costas. 
+        A mega-evolução de Venusaur foi introduzida também na série "Pokémon XY".</p>
+        <img class="mega-image" src="busetaMEGA.png" alt="Mega Venusaur" />
+    </div>
+
+    <script>
+        function showTab(tab) {
+            // Esconde todos os conteúdos
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove a classe 'active' de todas as guias
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => {
+                t.classList.remove('active');
+            });
+
+            // Mostra o conteúdo da guia selecionada
+            document.getElementById(tab + 'Content').classList.add('active');
+            const activeTab = document.querySelector(`.tab:contains('${tab.charAt(0).toUpperCase() + tab.slice(1)}')`);
+            activeTab.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
